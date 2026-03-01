@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #fff !important;
+  }
+
+  /* Hide non-print UI */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure page breaks */
+  .print-page {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  /* Repeat table headers across pages */
+  thead { display: table-header-group; }
+
+  /* Avoid splitting rows */
+  tr, td, th {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Remove shadow in print */
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+}
